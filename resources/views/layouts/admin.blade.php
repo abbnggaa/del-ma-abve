@@ -106,21 +106,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('agenda') }}" class="nav-link">
+              <a href="{{ url('keterangan') }}" class="nav-link">
                 <i class="nav-icon fas fa-folder"></i>
-                <p>Agenda</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('guru') }}" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
-                <p>Guru</p>
+                <p>Catatan Perjalanan</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ url('kelas') }}" class="nav-link">
                 <i class="nav-icon fas fa-user-friends"></i>
-                <p>Kelas</p>
+                <p>Isi Data</p>
               </a>
             </li>
             <li class="nav-item">

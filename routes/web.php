@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KeteranganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin', 'auth', 'PreventBackH
 Route::group(['prefix'=>'user', 'middleware'=>['isUser', 'auth', 'PreventBackHistory']], function(){
     Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
 });
+
+Route::resource('keterangan', KeteranganController::class);
