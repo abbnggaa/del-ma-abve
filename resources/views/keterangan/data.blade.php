@@ -21,7 +21,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">Tanggal</th>
+                                <th scope="col">tanggal</th>
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Lokasi</th>
                                 <th scope="col">Suhu Tubuh</th>
