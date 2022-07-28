@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keterangan;
 use Illuminate\Http\Request;
+use App\Http\Requests\KeteranganRequest;
 
 class KeteranganController extends Controller
 {
@@ -15,7 +16,7 @@ class KeteranganController extends Controller
     public function index()
     {
         $data = Keterangan::paginate(7);
-        return view('keterangan.data', compact('data'));
+        return view('Tanggal.data', compact('data'));
     }
 
     /**
@@ -25,7 +26,8 @@ class KeteranganController extends Controller
      */
     public function create()
     {
-        //
+        $data = new Keterangan;
+        return view('Keterangan.tambah', compact('data'));
     }
 
     /**
@@ -34,9 +36,16 @@ class KeteranganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KeteranganRequest $request)
     {
-        //
+        $data = new Keterangan;
+        $data->tanggal = $request->tanggal;
+        $data->waktu = $request->waktu;
+        $data->lokasi = $request->lokasi;
+        $data->suhu_tubuh = $request->suhu_tubuh;
+        $data->save();
+
+        return redirect('keterangan')->with('success', 'data berhasil di tambahkan');
     }
 
     /**
@@ -58,7 +67,8 @@ class KeteranganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Keterangan::findorfail($id);
+        return view('keterangan.edit', compact('data'));
     }
 
     /**
@@ -68,9 +78,16 @@ class KeteranganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KeteranganRequest $request, $id)
     {
-        //
+        $data = Keterangan::findorfail($id);
+        $data->tanggal = $request->tanggal;
+        $data->waktu = $request->waktu;
+        $data->lokasi = $request->lokasi;
+        $data->suhu_tubuh = $request->suhu_tubuh;
+        $data->save();
+
+        return redirect('keterangan')->with('success', 'data berhasil di update');
     }
 
     /**
@@ -81,6 +98,9 @@ class KeteranganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Keterangan::findorfail($id);
+        $data->delete();
+
+        return redirect('keterangan')->with('success', 'data berhasil didelete');
     }
 }
