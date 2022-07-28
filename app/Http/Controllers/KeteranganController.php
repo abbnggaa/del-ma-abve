@@ -16,7 +16,7 @@ class KeteranganController extends Controller
     public function index()
     {
         $data = Keterangan::paginate(7);
-        return view('Tanggal.data', compact('data'));
+        return view('keterangan.data', compact('data'));
     }
 
     /**
