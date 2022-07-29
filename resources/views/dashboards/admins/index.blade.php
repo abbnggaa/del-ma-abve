@@ -20,6 +20,11 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-8">
+            <div class="col-md-8">
+                <a href="{{ url('dataketerangan') }}" class="btn btn-primary mb-3">Cek Catatan Perjalanan Anggota</a>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

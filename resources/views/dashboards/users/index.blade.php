@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 
 @section('title', 'Home')
 
@@ -16,8 +16,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in! User ') }}{{ Auth::user()->name }}
+                    {{ __('Selamat Datang ') }}{{ Auth::user()->name }}.{{ __(' Del Ma Abve adalah aplikasi yang dikembangkan untuk membantu instansi pemerintah terkait dalam melakukan pelacakan untuk menghentikan penyebaran Coronavirus Disease. Aplikasi ini mengandalkan partisipasi masyarakat untuk saling membagikan data lokasinya saat bepergian agar penelusuran riwayat kontak dengan penderita COVID-19 dapat dilakukan.') }}
                 </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-8">
+                <a href="{{ url('keterangan/create') }}" class="btn btn-primary mb-3">Isi Catatan Perjalanan</a>
             </div>
         </div>
     </div>

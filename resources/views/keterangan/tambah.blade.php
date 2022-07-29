@@ -1,6 +1,6 @@
-@extends('layouts.admin') 
+@extends('layouts.user') 
  
-@section('title', 'Tambah Data Keterangan') 
+@section('title', 'Tambah Catatan Perjalanan') 
  
 @section('content') 
     <div class="container"> 

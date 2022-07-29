@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KeteranganController;
+use App\Http\Controllers\DataKeteranganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::middleware(['middleware' => 'PreventBackHistory'])->group(function(){
     Auth::routes();
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('home');
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin', 'auth', 'PreventBackHistory']], function(){
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -37,3 +38,4 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser', 'auth', 'PreventBackHis
 });
 
 Route::resource('keterangan', KeteranganController::class);
+Route::resource('dataketerangan', DataKeteranganController::class);
