@@ -16,7 +16,7 @@ class KeteranganController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-        $data = Keterangan::latest()->orWhere('tanggal', 'LIKE', '%'.$keyword.'%')->orWhere('lokasi', 'LIKE', '%'.$keyword.'%')->simplepaginate(4);
+        $data = Keterangan::latest()->orWhere('tanggal', 'LIKE', '%'.$keyword.'%')->orWhere('waktu', 'LIKE', '%'.$keyword.'%')->orWhere('lokasi', 'LIKE', '%'.$keyword.'%')->orWhere('suhu_tubuh', 'LIKE', '%'.$keyword.'%')->simplepaginate(5);
         return view('keterangan.data', compact('data', 'keyword'));
     }
 
