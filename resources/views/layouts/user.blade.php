@@ -11,9 +11,8 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css') }}">
 </head>
-
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
@@ -71,7 +70,7 @@
       <!-- Brand Logo -->
       <div class="sidebar">
           <a href="#" class="brand-link">
-              <span class="brand-text font-weight-light">Admin</span>
+              <span class="brand-text font-weight-light">User</span>
           </a>
       </div>
   
@@ -107,9 +106,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ url('dataketerangan') }}" class="nav-link">
+              <a href="{{ url('keterangan') }}" class="nav-link">
                 <i class="nav-icon fas fa-folder"></i>
                 <p>Catatan Perjalanan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('keterangan/create') }}" class="nav-link">
+                <i class="nav-icon fas fa-user-friends"></i>
+                <p>Isi Data</p>
               </a>
             </li>
             <li class="nav-item">

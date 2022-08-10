@@ -6,7 +6,7 @@ use App\Models\Keterangan;
 use Illuminate\Http\Request;
 use App\Http\Requests\KeteranganRequest;
 
-class KeteranganController extends Controller
+class DataKeteranganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class KeteranganController extends Controller
     {
         $keyword = $request->keyword;
         $data = Keterangan::latest()->orWhere('tanggal', 'LIKE', '%'.$keyword.'%')->orWhere('waktu', 'LIKE', '%'.$keyword.'%')->orWhere('lokasi', 'LIKE', '%'.$keyword.'%')->orWhere('suhu_tubuh', 'LIKE', '%'.$keyword.'%')->simplepaginate(5);
-        return view('keterangan.data', compact('data', 'keyword'));
+        return view('dataketerangan.data', compact('data', 'keyword'));
     }
 
     /**
@@ -27,8 +27,7 @@ class KeteranganController extends Controller
      */
     public function create()
     {
-        $data = new Keterangan;
-        return view('Keterangan.tambah', compact('data'));
+        // 
     }
 
     /**
@@ -37,16 +36,9 @@ class KeteranganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(KeteranganRequest $request)
+    public function store(Request $request)
     {
-        $data = new Keterangan;
-        $data->tanggal = $request->tanggal;
-        $data->waktu = $request->waktu;
-        $data->lokasi = $request->lokasi;
-        $data->suhu_tubuh = $request->suhu_tubuh;
-        $data->save();
-
-        return redirect('keterangan')->with('success', 'Data berhasil di tambahkan');
+        // 
     }
 
     /**
@@ -69,7 +61,7 @@ class KeteranganController extends Controller
     public function edit($id)
     {
         $data = Keterangan::findorfail($id);
-        return view('keterangan.edit', compact('data'));
+        return view('dataketerangan.edit', compact('data'));
     }
 
     /**
@@ -88,7 +80,7 @@ class KeteranganController extends Controller
         $data->suhu_tubuh = $request->suhu_tubuh;
         $data->save();
 
-        return redirect('keterangan')->with('success', 'Data berhasil di update');
+        return redirect('dataketerangan')->with('success', 'Data berhasil di update');
     }
 
     /**
@@ -102,6 +94,6 @@ class KeteranganController extends Controller
         $data = Keterangan::findorfail($id);
         $data->delete();
 
-        return redirect('keterangan')->with('success', 'Data berhasil didelete');
+        return redirect('dataketerangan')->with('success', 'Data berhasil didelete');
     }
 }

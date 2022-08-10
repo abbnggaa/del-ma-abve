@@ -1,4 +1,4 @@
-@extends('layouts.user') 
+@extends('layouts.admin') 
  
 @section('title', 'Edit Catatan Perjalanan') 
  
@@ -8,7 +8,7 @@
             <div class="col-md-8"> 
                 <div class="card"> 
                     <div class="card-body"> 
-                        <form method="POST" action="{{ url('keterangan/'.$data->id) }}"> 
+                        <form method="POST" action="{{ url('dataketerangan/'.$data->id) }}"> 
                             @csrf 
                             @method('PUT') 
  

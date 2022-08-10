@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 
 @section('title', 'Catatan Perjalanan')
 
@@ -27,7 +27,8 @@
                                 <th scope="col">Lokasi</th>
                                 <th scope="col">Suhu Tubuh</th>
                                 <th scope="col">Tanggal Input</th>
-                                <th scope="col">Edit</th>
+                                <th scope="col">Tanggal Update</th>
+                                <th scope="col">Option</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -39,7 +40,15 @@
                                     <td>{{ $dt->lokasi }}</td>
                                     <td>{{ $dt->suhu_tubuh }} C </td>
                                     <td>{{ $dt->created_at }}</td>
-                                    <td><a href="{{ url('keterangan/'.$dt->id.'/edit') }}" type="button" class="btn btn-warning"><i class="fas fa-pen"></a></td>
+                                    <td>{{ $dt->updated_at }}</td>
+                                    <td><a href="{{ url('dataketerangan/'.$dt->id.'/edit') }}" type="button" class="btn btn-warning"><i class="fas fa-pen"></a></td>
+                                    <td>
+                                        <form action="{{ url('dataketerangan/'.$dt->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    </td>
                                 </tr> 
                             @endforeach
                             </tbody> 
