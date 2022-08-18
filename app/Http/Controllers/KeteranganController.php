@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keterangan;
 use Illuminate\Http\Request;
+use App\Http\Resources\KeteranganResource;
 use App\Http\Requests\KeteranganRequest;
 
 class KeteranganController extends Controller
@@ -18,6 +19,8 @@ class KeteranganController extends Controller
         $keyword = $request->keyword;
         $data = Keterangan::latest()->orWhere('tanggal', 'LIKE', '%'.$keyword.'%')->orWhere('waktu', 'LIKE', '%'.$keyword.'%')->orWhere('lokasi', 'LIKE', '%'.$keyword.'%')->orWhere('suhu_tubuh', 'LIKE', '%'.$keyword.'%')->simplepaginate(5);
         return view('keterangan.data', compact('data', 'keyword'));
+
+        return new KeteranganResource(true, 'List Data Keterangan', $data);
     }
 
     /**
