@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('user', App\Http\Controllers\Api\UserController::class);
+Route::apiResource('/data', App\Http\Controllers\Api\DataController::class);
