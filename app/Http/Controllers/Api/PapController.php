@@ -13,7 +13,7 @@ class PapController extends Controller
 {
     public function index()
     {
-        $pap = Pap::with('user', 'image')->get();
+        $pap = Pap::with('user')->get();
 
         //return collection of posts as a resource
         return new PapResource(true, 'List Data Posts', $pap);
@@ -48,7 +48,7 @@ class PapController extends Controller
 
     public function show($datapap)
     {
-        $pap = Pap::with('user', 'image')->where('id', $datapap)->first();
+        $pap = Pap::with('user')->where('id', $datapap)->first();
         return new PapResource(true, 'Data Post Ditemukan!', $pap);
     }
 

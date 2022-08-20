@@ -45,6 +45,11 @@ class UserController extends Controller
         return new UserResource(true, 'Data Post Berhasil Ditambahkan!', $datauser);
     }
 
+    public function show(User $user)
+    {
+        return new UserResource(true, 'Data Post Ditemukan!', $user);
+    }
+
     public function update(Request $request, User $user)
     {
         //define validation rules
