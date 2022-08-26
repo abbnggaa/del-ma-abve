@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function index(){
-        $user = User::latest()->paginate(5);
+        $user = User::latest()->get();
         return new UserResource(true, 'List Data Posts', $user);
     }
 
