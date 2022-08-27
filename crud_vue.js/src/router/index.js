@@ -17,6 +17,21 @@ const routes = [
         path: '/edit/:id',
         name: 'user.edit-user',
         component: () => import( /* webpackChunkName: "user.edit" */ '@/views/user/Edit.vue')
+    },
+    {
+        path: '/catatan',
+        name: 'catatan.index-catatan',
+        component: () => import( /* webpackChunkName: "catatan.index" */ '@/views/catatan/Index.vue')
+    },
+    {
+        path: '/catatan-create',
+        name: 'catatan.create-catatan',
+        component: () => import( /* webpackChunkName: "catatan.create" */ '@/views/catatan/Create.vue')
+    },
+    {
+        path: '/catatan-edit/:id',
+        name: 'catatan.edit-catatan',
+        component: () => import( /* webpackChunkName: "catatan.edit" */ '@/views/catatan/Edit.vue')
     }
 ]
 
