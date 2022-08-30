@@ -32,6 +32,21 @@ const routes = [
         path: '/catatan-edit/:id',
         name: 'catatan.edit-catatan',
         component: () => import( /* webpackChunkName: "catatan.edit" */ '@/views/catatan/Edit.vue')
+    },
+    {
+        path: '/pap',
+        name: 'pap.index-pap',
+        component: () => import( /* webpackChunkName: "pap.index" */ '@/views/pap/Index.vue')
+    },
+    {
+        path: '/pap-create',
+        name: 'pap.create-pap',
+        component: () => import( /* webpackChunkName: "pap.create" */ '@/views/pap/Create.vue')
+    },
+    {
+        path: '/pap-edit/:id',
+        name: 'pap.edit-pap',
+        component: () => import( /* webpackChunkName: "pap.edit" */ '@/views/pap/Edit.vue')
     }
 ]
 
